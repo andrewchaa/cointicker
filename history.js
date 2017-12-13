@@ -1,6 +1,6 @@
 const fs = require('fs')
 const Gdax = require('gdax')
-const client = require('./client')
+const client = require('./dataClient')
 
 client.getHistoricRates('BTC-USD', (csv) => {
   console.log('BTC ...')
