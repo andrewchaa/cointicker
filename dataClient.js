@@ -9,8 +9,8 @@ exports.getHistoricRates = (productId, callback) => {
   const publicClient = new Gdax.PublicClient(productId);
   publicClient.getProductHistoricRates({
       'granularity': 86400,
-      'start': yearAgo.toString('YYYY-MM-DD'),
-      'end': today.toString('YYYY-MM-DD')
+      'start': yearAgo,
+      'end': today
     }, (err, res, rates) => {
 
       if (err) {
@@ -32,7 +32,7 @@ exports.getHistoricRates = (productId, callback) => {
         const volumn = cols[5].toFixed(2);
         const range = (high - low).toFixed(2)
 
-        csv += `${date.toDateString()},${low},${high},${open},${close},${volumn},${range}\r\n`
+        csv += `${date.toISOString().split('T')[0]},${low},${high},${open},${close},${volumn},${range}\r\n`
       })
 
       callback(csv)
