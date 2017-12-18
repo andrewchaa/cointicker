@@ -7,13 +7,12 @@ router.get('/', function(req, res, next) {
 
   client.getHistoricRates('BTC-EUR', (csv) => {
     console.log('BTC ...')
-    // fs.writeFileSync('./data/bst.csv', csv)
-    res.send(csv)
+
+    res.setHeader('Content-disposition', 'attachment: filename=btc.csv')
+    res.set('Content-Type', 'text/csv')
+    res.status(200).send(csv)
   })
   
-  // res.send('history');
-
-
 });
 
 module.exports = router;
