@@ -12,7 +12,24 @@ router.get('/', function(req, res, next) {
     res.set('Content-Type', 'text/csv')
     res.status(200).send(csv)
   })
+
+  client.getHistoricRates('ETH-EUR', (csv) => {
+    console.log('ETH ...')
+    
+    res.setHeader('Content-disposition', 'attachment; filename=eth.csv')
+    res.set('Content-Type', 'text/csv')
+    res.status(200).send(csv)
+  })
   
+  client.getHistoricRates('LTC-EUR', (csv) => {
+    console.log('LTC ...')
+
+    res.setHeader('Content-disposition', 'attachment; filename=ltc.csv')
+    res.set('Content-Type', 'text/csv')
+    res.status(200).send(csv)
+  })
+    
+
 });
 
 module.exports = router;
