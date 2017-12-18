@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   client.getHistoricRates('BTC-EUR', (csv) => {
     console.log('BTC ...')
 
-    res.setHeader('Content-disposition', 'attachment: filename=btc.csv')
+    res.setHeader('Content-disposition', 'attachment; filename=btc.csv')
     res.set('Content-Type', 'text/csv')
     res.status(200).send(csv)
   })
