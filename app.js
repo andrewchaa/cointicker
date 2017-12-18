@@ -29,7 +29,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/btc', btc);
 app.use('/eth', eth);
-app.use('/ltc', eth);
+app.use('/ltc', ltc);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
