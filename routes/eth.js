@@ -8,7 +8,10 @@ router.get('/', function(req, res, next) {
   client.getHistoricRates('ETH-EUR', (csv) => {
     console.log('ETH ...')
     
-    res.setHeader('Content-disposition', 'attachment; filename=eth.csv')
+    res.setHeader(
+      'Content-disposition', 
+      `attachment; filename=eth-${new Date().toISOString().split('T')[0]}.csv`
+    )
     res.set('Content-Type', 'text/csv')
     res.status(200).send(csv)
   })  

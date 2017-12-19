@@ -8,7 +8,10 @@ router.get('/', function(req, res, next) {
   client.getHistoricRates('LTC-EUR', (csv) => {
     console.log('LTC ...')
 
-    res.setHeader('Content-disposition', 'attachment; filename=ltc.csv')
+    res.setHeader(
+      'Content-disposition', 
+      `attachment; filename=ltc-${new Date().toISOString().split('T')[0]}.csv`
+    )
     res.set('Content-Type', 'text/csv')
     res.status(200).send(csv)
   })
