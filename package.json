@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start-server": "node ./bin/www",
+    "start": "node ./bin/www",
     "history": "node history",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "ngstart": "ng serve",
+    "ngbuild": "ng build --prod",
+    "ngtest": "ng test",
+    "nglint": "ng lint",
+    "nge2e": "ng e2e"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
